@@ -1,0 +1,3 @@
+insert into verseny(futamnev,palyahossz,helyszin,nezoszam,szponzor,gyoztes,tvado) values('nagyon nagy nagydíj',1234,'Miskolc',1,'Rolex','Valaki','ABC');
+insert into verseny(futamnev,palyahossz,helyszin,nezoszam,szponzor,gyoztes,tvado) values('kicsit kisebb  nagydíj',123,'Miskolc',1,'Rolex','Valaki2','RTL');
+insert into verseny(futamnev,palyahossz,helyszin,nezoszam,szponzor,gyoztes,tvado) values('nagyon kcisi nagydíj',1,'Miskolc',1,'Rolex','Valaki','TV2');

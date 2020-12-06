@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head >
+    <body>
+        <div class="content">
+        <h1>Verseny</h1>
+        <br/><br/>
+        <form method="POST" 
+          action="#" th:action="@{/update}" th:object="${verseny}">
+             <table class="formtable">
+                <tr style="display: none;">
+                    <td><label path="id">Id</label></td>
+                    <td><input path="id" th:field="*{id}" /></td>
+                </tr>
+                <tr>
+                    <td><label path="futamnev">Futam neve:</label></td>
+                    <td><input type="text" th:field="*{futamnev}" /></td>
+                </tr>
+                <tr>
+                    <td><label path="palyahossz">Pálaya hossza:</label></td>
+                    <td><input type="number" th:field="*{palyahossz}"/></td>
+                </tr>
+                <tr>
+                    <td><label path="helyszin">Helyszín:</label></td>
+                    <td><input type="text" th:field="*{helyszin}"/></td>
+                </tr>
+<tr>
+                    <td><label path="nezoszam">Nézőszám:</label></td>
+                    <td><input type="number" th:field="*{nezoszam}"/></td>
+                </tr>
+<tr>
+                    <td><label path="szponzor">Szponzor:</label></td>
+                    <td><input type="text" th:field="*{szponzor}"/></td>
+                </tr>
+<tr>
+                    <td><label path="gyoztes">Győztes:</label></td>
+                    <td><input type="text" th:field="*{gyoztes}"/></td>
+                </tr>
+<tr>
+                    <td><label path="tvado">TV adó:</label></td>
+                    <td><input type="text" th:field="*{tvado}"/></td>
+                </tr>
+                    
+                    
+            </table>
+        
+        <br/><br/>
+            <input class="button" type="submit" value="mentés"/>
+            <button class="button"type="cancel" value="mégse" />méges</button>
+        </form>
+        </div>
+    </body>
+</html>

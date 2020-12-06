@@ -1,0 +1,46 @@
+html {
+  background-color:#06A6E5;
+  color: white;
+  padding: 4cm;
+}
+body {
+
+  text-align: center;
+  background-color: #06A6E5;
+}
+
+.button {
+  background-color:#B26334;
+  border: solid;
+  color: white;
+  padding: 7px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.select {
+  background-color:#06A6E5;
+  border: solid 10px 	#B26334;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.table{
+    border-collapse: collapse;
+    border: solid 3px 	#B26334;
+    min-width: 80%;
+    text-align: center;
+}
+.table tr, .table td, .table th{
+
+    border: solid 5px #B26334;
+}
+
+
+
+

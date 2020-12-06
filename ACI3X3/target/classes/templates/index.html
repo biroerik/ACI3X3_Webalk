@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+      <meta charset = "ISO-8859-1" />
+      <title>Spring Boot Application</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="content">
+      <h1>Verseny</h1>
+      <table class="table">
+         <thead>
+            <tr>
+               <th colspan="2">Ops</th>
+               <th>Futam</th>
+               <th>Palyahossz</th>
+               <th>Helyszín</th>
+<th>Nézőszám</th>
+<th>Szponzor</th>
+<th>Győztes</th>
+<th>TV adó</th>
+            </tr>
+         </thead>
+         <tbody>
+         <tr th:each="str : ${list}">
+            <td>
+            <form action="#" th:action="@{/delete=} + ${{str.id}}" method="get">
+               <button class="button" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">
+                   del
+               </button>
+           </form>
+           </td>
+            <td>
+            <form action="#" th:action="@{/form=} + ${{str.id}}" method="get">
+               <button class="button" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">
+                   mod
+               </button>
+           </form>
+           </td>
+            <td style="display: none;"th:text=${str.id}></td>
+            <td th:text=${str.futamnev}></td>
+            <td th:text=${str.palyahossz}></td>
+            <td th:text=${str.helyszin}></td>
+<td th:text=${str.nezoszam}></td>
+<td th:text=${str.szponzor}></td>
+<td th:text=${str.gyoztes}></td>
+<td th:text=${str.tvado}></td>
+         </tr>
+         </tbody>
+      </table>
+      <br/><br/>
+      <a href="form" class="button">add</a>
+      <br/><br/><br/>
+      <a href="home" class="button" style="float: left;">Back</a>
+      </div>
+   </body>
+
+</html>
