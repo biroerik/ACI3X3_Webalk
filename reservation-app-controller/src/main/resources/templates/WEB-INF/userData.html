@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservations: user details</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-image: url('https://www.apple.com/ac/structured-data/images/open_graph_logo.png?201810270943');">
+   <h1> <a class="navbar-brand" href="/newReservationWizard/showHotels" style="color:darkgrey">Reservation</a></h1>
+   
+    <form th:action="@{/logout}" method="post" class="form-inline" style="float: right;">
+        <input type="submit" value="Sign Out" class="btn btn-light"/>
+    </form>
+
+<div class="card border-secondary" style="width: auto; margin: 2rem;">
+    <div class="card-header bg-secondary text-white">
+        Person details
+    </div>
+    <div class="card-body">
+        <form action="#" th:action="@{/updateUser}" th:object="${bookingPerson}" method="post" class="form-group">
+            <input type="hidden" th:value="${bookingPerson.id}" th:field="*{id}"/>
+            <p>Name: <input type="text" th:value="${bookingPerson.name}" th:field="*{name}" class="form-control"/></p>
+            <p>Email address: <input type="text" th:value="${bookingPerson.email}" th:field="*{email}" readonly class="form-control"/></p>
+            <p>Balance: <input type="text" th:value="${bookingPerson.balance}" th:field="*{balance}"  class="form-control"/></p>
+            <p>Date of birth: <input type="text" th:value="${bookingPerson.birth}" th:field="*{birth}" readonly class="form-control"/></p>
+            <p><input type="submit" value="Save" class="btn btn-secondary"/></p>
+        </form>
+    </div>
+</div>
+
+<div th:if="${reservations != null}" class="card border-secondary" style="margin: 2rem;">
+    <div class="card-header bg-secondary text-white">Reservations</div>
+    <div class="card-body">
+        <table class="table border-secondary">
+            <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Hotel</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Active</th>
+                <th>Processed</th>
+                <th>Delete reservation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reservation : ${reservations}">
+                <td><span th:text="${reservation.id}"> Id</span></td>
+                <td><span th:text="${reservation.getRoom().getWing().getFloor().getHotel().getName()}"> Name</span></td>
+                <td><span th:text="${reservation.from}"> Radius</span></td>
+                <td><span th:text="${reservation.to}"> Type</span></td>
+                <td><span th:text="${reservation.active}"> Type</span></td>
+                <td><span th:text="${reservation.processed}"> Type</span></td>
+                <td>
+                    <form th:action="@{/deleteReservation}" th:object="${reservation}" method="post">
+                        <input type="hidden" name="id" th:value="${reservation.id}">
+                        <input type="hidden" name="mass" th:value="${reservation.from}">
+                        <input type="hidden" name="radius" th:value="${reservation.to}">
+                        <input type="hidden" name="type" th:value="${reservation.processed}">
+                        <input type="hidden" name="type" th:value="${reservation.active}">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
